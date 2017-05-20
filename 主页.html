@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		body{
+			width: 100%;
+			height: 100%;
+			background-color: #ddd;
+		}
+		#date{
+			font-size: 3em;
+			position: absolute;
+			top: 50%;
+			left:50%;
+			transform: translate(-50%,-50%);
+			user-select:none;
+		}
+	</style>
+</head>
+<body>
+	<p id="date"></p>
+	<script>
+		var date =document.getElementById('date');
+		setInterval(function (){var time = new Date();
+		var stime = time.toString();
+		var sl=stime.slice(15,24);
+		date.innerHTML = sl;},1000);
+		/*window.ondblclick = function (){
+			console.log("hello")
+			location.href = "http://www.baidu.com";
+		}*/
+		var body =document.body;
+		body.addEventListener('keypress',function(event){
+			console.log(event.keyCode);
+			switch(event.keyCode){
+				case 108:
+				location.href = "http://www.bilibili.com" 
+				break;
+				case 98:
+				location.href = "http://www.baidu.com";
+				break;
+				case 103:
+				location.href = "https://www.github.com";
+				break;
+				case 121:
+				location.href = "https://www.youtube.com";
+			}
+		})
+/*		window.onkeypress = function(event){
+			console.log(event.keyCode);
+		}*/
+	</script>
+</body>
+</html>
