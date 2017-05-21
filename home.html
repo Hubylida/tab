@@ -8,50 +8,119 @@
 		body{
 			width: 100%;
 			height: 100%;
-			background-color: #ddd;
+			background-color: #c2aea6;
+		}
+		#main{
+			min-width: 945px;
 		}
 		#date{
 			font-size: 3em;
 			position: absolute;
-			top: 50%;
+			top: 45%;
 			left:50%;
 			transform: translate(-50%,-50%);
 			user-select:none;
 		}
+		form{
+			position: absolute;
+			top: 40%;
+			left: 52%;
+			transform: translate(-50%,-50%);
+			outline: none;
+		}
+		#text{
+			border: 1px solid transparent;
+			width: 340px;
+			height: 36px;
+			font-size: 25px;
+			padding-left: 8px;
+			border-top-left-radius: 3px;
+			border-bottom-left-radius:3px;
+			color:rgba(100,100,100,0.7);
+			outline: none;
+		}
+		#submit{
+			width: 100px;
+			height: 40px;
+			vertical-align: top;
+			font-size: 20px;
+			border-color: transparent;
+			border-top-right-radius: 3px;
+			border-bottom-right-radius:3px;
+			margin-left: -5px;
+			outline: none;
+			cursor: pointer;
+		}
+	/* 	#submit:hover{
+		background-color: #c25c55;
+		cursor: pointer;
+	} */
 	</style>
 </head>
 <body>
+	<div id="main">
+	<!-- <form action="http://www.baidu.com/baidu" target="_blank" id="form">
+		<input type="text" id="text" value="start">
+		<input type="submit" id="submit" value="search">
+	</form> -->
+	<form name="" id="form">
+		<input type="text" id="text" value="start">
+		<input type="submit" id="submit" value="search">
+	</form>
 	<p id="date"></p>
+	</div>
 	<script>
 		var date =document.getElementById('date');
+
 		setInterval(function (){var time = new Date();
 		var stime = time.toString();
 		var sl=stime.slice(15,24);
 		date.innerHTML = sl;},1000);
-		/*window.ondblclick = function (){
-			console.log("hello")
-			location.href = "http://www.baidu.com";
-		}*/
+		
 		var body =document.body;
-		body.addEventListener('keypress',function(event){
+		body.addEventListener('keypress',keypress)
+		function keypress(event){
 			console.log(event.keyCode);
 			switch(event.keyCode){
-				case 108:
-				location.href = "http://www.bilibili.com" 
-				break;
 				case 98:
 				location.href = "http://www.baidu.com";
 				break;
 				case 103:
 				location.href = "https://www.github.com";
 				break;
+				case 122:
+				location.href = "https://www.zhihu.com";
+				break;
+				case 108:
+				location.href = "http://www.bilibili.com";
+				break;
+				case 115:
+				location.href ="https://segmentfault.com";
+				break;
 				case 121:
 				location.href = "https://www.youtube.com";
 			}
-		})
-/*		window.onkeypress = function(event){
-			console.log(event.keyCode);
-		}*/
+		}
+		var form = document.getElementById('form');
+		var text = document.getElementById('text');
+		var submit = document.getElementById('submit');
+		text.onfocus = function (){
+			text.value = "";
+			form.style.boxShadow="0 0 8px 1px #ccc";
+			document.body.removeEventListener('keypress',keypress);
+		}
+		text.onblur = function (){
+			form.style.boxShadow="0 0 0 0";
+			text.value = "start";
+			document.body.addEventListener('keypress',keypress);
+		}
+		form.onsubmit = function (){
+			var vl = text.value;
+			window.open("http://www.baidu.com/s?wd=" + vl);
+			return false;
+		}
 	</script>
+	<!-- 百度的搜索接口是 http://www.baidu.com/s?wd=
+	    Google的接口是 http://www.goole.com/search?h/=zh-CH&q= -->
 </body>
 </html>
