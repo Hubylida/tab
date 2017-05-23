@@ -20,6 +20,7 @@
 			left:50%;
 			transform: translate(-50%,-50%);
 			user-select:none;
+			color: #222;
 		}
 		form{
 			position: absolute;
@@ -51,10 +52,26 @@
 			outline: none;
 			cursor: pointer;
 		}
-	/* 	#submit:hover{
-		background-color: #c25c55;
-		cursor: pointer;
-	} */
+		#love{
+			font-size: 29px;
+			font-family:  Arial, "Microsoft YaHei";
+			color: #000;
+			letter-spacing: 3px;
+			position: absolute;
+			top: 26%;
+			left: 50%;
+			transform: translate(-50%,-50%);
+		}
+		@media only screen and (max-width: 320px){
+			#form{
+				width: 90%;
+				position: absolute;
+				top: 30%;
+				left: 50%;
+				transform: translate(-50%,-50%);
+
+			}
+		}
 	</style>
 </head>
 <body>
@@ -68,6 +85,9 @@
 		<input type="submit" id="submit" value="search">
 	</form>
 	<p id="date"></p>
+	<p id="love">
+		罗涵	
+	</p>
 	</div>
 	<script>
 		var date =document.getElementById('date');
@@ -116,7 +136,12 @@
 		}
 		form.onsubmit = function (){
 			var vl = text.value;
+			if(vl === "start"){
+				window.open("http://www.baidu.com");
+			}
+			else{
 			window.open("http://www.baidu.com/s?wd=" + vl);
+		}
 			return false;
 		}
 	</script>
