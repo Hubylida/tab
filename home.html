@@ -95,9 +95,7 @@
 	</p>
 	</div>
 	<script>
-	
 		var date =document.getElementById('date');
-
 		setInterval(function (){var time = new Date();
 		var stime = time.toString();
 		var sl=stime.slice(15,24);
@@ -127,9 +125,13 @@
 				location.href = "https://www.youtube.com";
 			}
 		}
+		
 		var form = document.getElementById('form');
 		var text = document.getElementById('text');
 		var submit = document.getElementById('submit');
+		window.onload = function (){
+			text.focus();
+		}
 		text.onfocus = function (){
 			text.value = "";
 			form.style.boxShadow="0 0 8px 1px #ccc";
@@ -144,7 +146,6 @@
 			var vl = text.value;
 			if(vl === "start"){
 				window.open("http://www.baidu.com");
-			}else{
 				window.open("http://www.baidu.com/s?wd=" + vl);
 			}
 				return false;
