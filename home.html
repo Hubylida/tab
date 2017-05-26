@@ -4,6 +4,7 @@
 	<meta charset="UTF-8">
 	<title>猪儿页</title>
  	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"> 
+ 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<style>
 		body{
 			width: 100%;
@@ -35,7 +36,6 @@
 		}
 		#text{
 			border: 1px solid transparent;
-			/* width: 340px; */
 			height: 36px;
 			font-size: 25px;
 			padding-left: 8px;
@@ -67,16 +67,30 @@
 			left: 50%;
 			transform: translate(-50%,-50%);
 		}
-		@media only screen and (max-width: 320px){
-			#form{
-				width: 90%;
-				position: absolute;
-				top: 30%;
-				left: 50%;
-				transform: translate(-50%,-50%);
-
-			}
+@media screen and (max-width: 400px){
+        #form{
+			width: 90%;
+			position: absolute;
+			top: 40%;
+			left: 50%;
+			transform: translate(-50%,-50%);
 		}
+		#text{
+			width: 75%;
+		}
+		#submit{
+			width: 22%;
+		}
+		#love{
+			position: absolute;
+			top: 15%;
+		}
+		#date{
+			position: absolute;
+			top: 55%;
+		}
+}
+
 	</style>
 </head>
 <body>
@@ -160,12 +174,12 @@
 			var cx=document.documentElement.clientWidth;
 					if (cx>1600){
 						text.style.width = "500px";
-					}else if(cx<1600){
+					}else if(cx<1600&&cx>600){
 						text.style.width = "340px";		
 					}
 
 			var oH = document.documentElement.clientHeight;
-					if(oH>600){
+					if(oH>600&&oH<700){
 						love.style.top = "26%";
 					}else if(oH<600){
 						love.style.top = "15%";
