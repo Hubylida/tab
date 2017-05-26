@@ -76,10 +76,10 @@
 			transform: translate(-50%,-50%);
 		}
 		#text{
-			width: 74%;
+			width: 75%;
 		}
 		#submit{
-			width: 22%;
+			width: 21%;
 			font-size: 1em;
 		}
 		#love{
@@ -175,8 +175,11 @@
 			var cx=document.documentElement.clientWidth;
 					if (cx>1600){
 						text.style.width = "500px";
-					}else if(cx<1600&&cx>1000){
-						text.style.width = "340px";		
+					}else if(cx<1600){
+						text.style.width = "340px";	
+						if(cx<600){
+							text.style.width = "75%";
+						}	
 					}
 
 			var oH = document.documentElement.clientHeight;
