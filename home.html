@@ -143,22 +143,17 @@
 		
 		var form = document.getElementById('form');
 		var text = document.getElementById('text');
-		var submit = document.getElementById('submit');
-		window.onload = function (){
-			text.focus();
-		}
+		var submit = document.getElementById('submit');	
 		text.onfocus = function (){
 			text.value = "";
 			form.style.boxShadow="0 0 8px 1px #ccc";
 			document.body.removeEventListener('keypress',keypress);
 		}
-/*		text.onblur = function (){
+		text.onblur = function (){
 			form.style.boxShadow="0 0 0 0";
 			text.value = "start";
 			document.body.addEventListener('keypress',keypress);
-		}*/
-		/*form.addEventListener('submit',submit);
-		submit.addEventListener('click',submit);*/
+		}
 		    form.onsubmit = function (){
 			var vl = text.value;
 			if(vl === "start"){
@@ -168,10 +163,6 @@
 			}
 				return false;
 			}
-		/*	submit.onclick = function (){
-				form.submit
-			}
-		*/
 			var cx=document.documentElement.clientWidth;
 					if (cx>1600){
 						text.style.width = "500px";
