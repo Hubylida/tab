@@ -144,15 +144,19 @@
 		var form = document.getElementById('form');
 		var text = document.getElementById('text');
 		var submit = document.getElementById('submit');	
+
 		text.onfocus = function (){
 			text.value = "";
 			form.style.boxShadow="0 0 8px 1px #ccc";
 			document.body.removeEventListener('keypress',keypress);
 		}
 		text.onblur = function (){
+			var vl = text.value;
+			if(vl===""){
 			form.style.boxShadow="0 0 0 0";
 			text.value = "start";
 			document.body.addEventListener('keypress',keypress);
+		}
 		}
 		    form.onsubmit = function (){
 			var vl = text.value;
