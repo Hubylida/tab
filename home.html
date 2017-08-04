@@ -2,239 +2,208 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<title>猪儿页</title>
-	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-	<style>
-		html {
-			height: 100%;
-		}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="http://ou2r9nim8.bkt.clouddn.com/favicon.ico" type="image/x-icon">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+    <title>LHHY</title>
+    <style>
+        html,
+        body {
+            padding: 0;
+            margin: 0;
+            height: 100%;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -o-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+        }
 
-		body {
-			width: 100%;
-			height: 100%;
-			padding: 0px;
-			margin: 0px;
-			background: url('http://ou2r9nim8.bkt.clouddn.com/4.jpg');
-		}
+        body {
+            background: url('http://ou2r9nim8.bkt.clouddn.com/4.jpg');
+            width: 100%;
+            height: 100%;
+        }
 
-		#main {
-			min-width: 945px;
-			height: 100%;
-		}
+        #nav {
+            text-align: right;
+            padding-right: 5px;
+        }
 
-		#date {
-			font-size: 3em;
-			position: absolute;
-			top: 45%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			user-select: none;
-			/* color: #222; */
-			color: #222;
-		}
+        #nav a {
+            text-decoration: none;
+            color: #000;
+            display: inline-block;
+            width: 100px;
+            line-height: 35px;
+            background: rgba(255, 255, 255, 0.6);
+            text-align: center;
+            font-family: "Whitney Cond A", "Whitney Cond B", "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
+            font-weight: 600;
+            border-bottom-left-radius: 4px;
+            border-bottom-right-radius: 4px;
+        }
 
-		form {
-			position: absolute;
-			top: 40%;
-			left: 51%;
-			transform: translate(-50%, -50%);
-			outline: none;
-		}
+        #nav a:hover,
+        #nav a:focus {
+            background: rgba(255, 255, 255, 0.8);
+        }
 
-		#text {
-			float: left;
-			border: 1px solid transparent;
-			height: 36px;
-			font-size: 25px;
-			padding-left: 8px;
-			border-top-left-radius: 3px;
-			border-bottom-left-radius: 3px;
-			color: rgba(100, 100, 100, 0.7);
-			outline: none;
-		}
+        #contain {
+            width: 100%;
+            position: absolute;
+            top: 45%;
+            left: 0;
+            transform: translate(0, -50%);
+            text-align: center;
+        }
 
-		#submit {
-			float: left;
-			width: 100px;
-			height: 40px;
-			vertical-align: top;
-			font-size: 20px;
-			border-color: transparent;
-			border-top-right-radius: 3px;
-			border-bottom-right-radius: 3px;
-			outline: none;
-			cursor: pointer;
-		}
+        #form {
+            display: inline-block;
+            border-radius: 3px;
+            letter-spacing: -5px;
+        }
 
-		#love {
-			font-size: 31px;
-			font-family: Arial, "Microsoft YaHei";
-			/* color: #000; */
-			color: #222;
-			letter-spacing: 3px;
-			position: absolute;
-			top: 26%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-		}
+        #search {
+            width: 510px;
+            height: 40px;
+            border: none;
+            outline: none;
+            font-size: 20px;
+            padding-left: 10px;
+            border-top-left-radius: 3px;
+            border-bottom-left-radius: 3px;
+            background: rgba(255, 255, 255, 0.8);
+        }
 
-		@media screen and (max-width: 350px) {
-			#form {
-				width: 90%;
-				position: absolute;
-				top: 40%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-			#text {
-				width: 75%;
-			}
-			#submit {
-				width: 21%;
-				font-size: 1em;
-			}
-			#love {
-				position: absolute;
-				top: 15%;
-				color: #444;
-			}
-			#date {
-				position: absolute;
-				top: 55%;
-			}
-		}
-	</style>
+        #submit {
+            width: 80px;
+            height: 42px;
+            font-size: 20px;
+            border: none;
+            border-top-right-radius: 3px;
+            border-bottom-right-radius: 3px;
+            background: rgba(222, 222, 222, 0.8);
+            outline: none;
+            cursor: pointer;
+        }
+
+        #submit:hover {
+            background: rgba(211, 211, 211, 0.8);
+        }
+
+        #gif {
+            user-select: none;
+        }
+        @media screen and (max-width:600px){
+            #search{
+                width: 200px;
+                height: 30px;
+                font-size: 14px;
+            }
+            #submit{
+                width: 55px;
+                height: 32px;
+                font-size: 14px;
+            }
+            #nav{
+                text-align: center;
+            }
+            #nav a{
+                font-size: 12px;
+                width: 70px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-	<div id="main">
-		<!-- <form action="http://www.baidu.com/baidu" target="_blank" id="form">
-		<input type="text" id="text" value="start">
-		<input type="submit" id="submit" value="search">
-	</form> -->
-		<form name="" id="form">
-			<input type="text" id="text" value="start">
-			<input type="submit" id="submit" value="search">
-		</form>
-		<p id="date"></p>
-		<p id="love">
-			罗涵
-		</p>
-	</div>
-	<script>
-		var date = document.getElementById('date');
-		setInterval(function () {
-			var time = new Date();
-			var stime = time.toString();
-			var sl = stime.slice(15, 24);
-			date.innerHTML = sl;
-		}, 1000);
+    <div id="nav">
+        <a href="http://lhhyuan.coding.me/">我的博客</a>
+        <a href="https://github.com/">我的GitHub</a>
+        <a href="http://lhhyuan.coding.me/videoPlayer/play.html">Yeah视频</a>
+    </div>
+    <div id="contain">
+        <form id="form" name="search">
+            <input type="text" value="search" id="search">
+            <input type="submit" value="search" id="submit">
+        </form>
+        <div id="time"></div>
+    </div>
+    <img src="gif/4.gif" alt="" id="gif">
+    <script>
+        $(document.body).on('keypress', keypress)
 
-		var body = document.body;
-		body.addEventListener('keypress', keypress)
-		function keypress(event) {
-			console.log(event.keyCode);
-			switch (event.keyCode) {
-				case 102:
-					location.href = "https://www.facebook.com/profile.php?id=100019094295164";
-					break;
-				case 104:
-					location.href = "https://hubylida.github.io/";
-					break;
-				case 106:
-					location.href = "https://juejin.im/timeline";
-					break;
-				case 111:
-					location.href = "https://outlook.live.com/owa/?path=/mail/inbox";
-					break;
-				case 113:
-					location.href = "https://portal.qiniu.com/bucket/blog/resource";
-					break;
-				case 116:
-					location.href = "https://twitter.com/";
-					break;
-				case 98:
-					location.href = "http://www.bilibili.com";
-					break;
-				case 103:
-					location.href = "https://www.github.com";
-					break;
-				case 112:
-					location.href = "https://www.pixiv.net/";
-					break;
-				case 122:
-					location.href = "https://www.zhihu.com";
-					break;
-				case 115:
-					location.href = "https://segmentfault.com";
-					break;
-				case 121:
-					location.href = "https://www.youtube.com";
-					break;
-			}
-		}
+        function keypress(event) {
+            console.log(event.keyCode);
+            switch (event.keyCode) {
+                case 102:
+                    location.href = "https://www.facebook.com/profile.php?id=100019094295164";
+                    break;
+                case 104:
+                    location.href = "https://hubylida.github.io/";
+                    break;
+                case 106:
+                    location.href = "https://juejin.im/timeline";
+                    break;
+                case 111:
+                    location.href = "https://outlook.live.com/owa/?path=/mail/inbox";
+                    break;
+                case 113:
+                    location.href = "https://portal.qiniu.com/bucket/blog/resource";
+                    break;
+                case 116:
+                    location.href = "https://twitter.com/";
+                    break;
+                case 98:
+                    location.href = "http://www.bilibili.com";
+                    break;
+                case 103:
+                    location.href = "https://www.github.com";
+                    break;
+                case 112:
+                    location.href = "https://www.pixiv.net/";
+                    break;
+                case 122:
+                    location.href = "https://www.zhihu.com";
+                    break;
+                case 115:
+                    location.href = "https://segmentfault.com";
+                    break;
+                case 121:
+                    location.href = "https://www.youtube.com";
+                    break;
+            }
+        }
 
-		var form = document.getElementById('form');
-		var text = document.getElementById('text');
-		var submit = document.getElementById('submit');
-
-		text.onfocus = function () {
-			text.value = "";
-			form.style.boxShadow = "0 0 8px 1px #ccc";
-			document.body.removeEventListener('keypress', keypress);
-		}
-		text.onblur = function () {
-			var vl = text.value;
-			if (vl === "") {
-				form.style.boxShadow = "0 0 0 0";
-				text.value = "start";
-				document.body.addEventListener('keypress', keypress);
-			}
-		}
-		form.onsubmit = function () {
-			var vl = text.value;
-			if (vl === "start") {
-				location.hrf = "http://www.baidu.com";
-			} else {
-				location.href = "http://www.baidu.com/s?wd=" + vl;
-			}
-			return false;
-		}
-		var cx = document.documentElement.clientWidth;
-		if (cx > 1600) {
-			text.style.width = "500px";
-		} else if (cx < 1600) {
-			text.style.width = "340px";
-			if (cx < 600) {
-				text.style.width = "73%";
-			}
-		}
-
-		var oH = document.documentElement.clientHeight;
-		if (oH > 600 && oH < 700) {
-			love.style.top = "26%";
-		} else if (oH < 600) {
-			love.style.top = "15%";
-		}
-		window.onresize = function () {
-			cx = document.documentElement.clientWidth;
-			if (cx > 1600) {
-				text.style.width = "500px";
-			} else if (cx < 1600) {
-				text.style.width = "340px";
-			}
-			oH = document.documentElement.clientHeight;
-			if (oH > 600) {
-				love.style.top = "26%";
-			} else if (oH < 600) {
-				love.style.top = "15%";
-			}
-		}
-	</script>
-	<!-- 百度的搜索接口是 http://www.baidu.com/s?wd=
-	    Google的接口是 http://www.goole.com/search?h/=zh-CH&q= -->
+        $('#search').on('focus', function () {
+            var vl = $('#search').val();
+            if (vl === "search") {
+                $(document.body).off('keypress');
+                $('#form').css('box-shadow', '0 0 8px 1px #ccc');
+                $('#search').val('');
+            }
+        });
+        $('#search').on('blur', function () {
+            var vl = $('#search').val();
+            if (vl === "") {
+                $('#search').val('search');
+            }
+            $('#form').css('box-shadow', '0 0 0 0');
+            $(document.body).on('keypress', keypress);
+        });
+        $('#form').on('submit', function () {
+            var vl = $('#search').val();
+            if (vl === "search") {
+                location.href = "http://www.baidu.com";
+            } else {
+                location.href = "http://www.baidu.com/s?wd=" + vl;
+            }
+            return false;
+        });
+    </script>
 </body>
 
 </html>
