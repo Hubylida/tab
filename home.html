@@ -73,6 +73,7 @@
         #nav a:hover,
         #nav a:focus {
             background: rgba(255, 255, 255, 0.8);
+            color: #e38383;
         }
 
         #form {
@@ -118,7 +119,24 @@
         #gif {
             user-select: none;
         }
-
+        #download{
+            border: none;
+            width: 100px;
+            height: 35px;
+            background: rgba(255, 255, 255, 0.6);
+            cursor: pointer;
+            font-size: 18px;
+            position: absolute;
+            bottom: 0px;
+            right: 0px;
+            border-top-left-radius: 3px;
+            border-top-right-radius: 3px;
+        }
+        #download:hover{
+            background: rgba(255,255,255,1);
+            /* color: #0366d6; */
+            color: #e38383;
+        }
         @media screen and (max-width:600px) {
             #form {
                 width: 280px;
@@ -141,6 +159,10 @@
                 font-size: 12px;
                 width: 70px;
             }
+            #download{
+               left: 50%;
+                transform: translate(-50%,0);
+            }
         }
     </style>
 </head>
@@ -160,6 +182,9 @@
 
     <div id="time"></div>
     <img src="http://ou2r9nim8.bkt.clouddn.com/4.gif" alt="" id="gif">
+
+    
+    <input type="button" value="下载源码" id="download">
     <script>
         $(document.body).on('keypress', keypress)
 
@@ -229,6 +254,16 @@
                 location.href = "http://www.baidu.com/s?wd=" + vl;
             }
             return false;
+        });
+        $('#download').click(function(){
+            var $eleForm = $("<form method='get'></form>");
+
+            $eleForm.attr("action","https://github.com/Hubylida/tab/archive/master.zip");
+
+            $(document.body).append($eleForm);
+
+            //提交表单，实现下载
+            $eleForm.submit();
         });
     </script>
 </body>
