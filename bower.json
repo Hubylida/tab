@@ -1,0 +1,20 @@
+{
+  "name": "tab",
+  "homepage": "https://github.com/Hubylida/tab",
+  "authors": [
+    "Hubylida <hubylidayuan@outlook.com>"
+  ],
+  "description": "my home.page",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.2.1"
+  }
+}
