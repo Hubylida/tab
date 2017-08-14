@@ -110,7 +110,7 @@
         }
 
         #submit:hover {
-            background: rgba(211, 211, 211, 0.2);
+            background: rgba(211, 211, 211, 0.1);
         }
 
         #gif {
@@ -141,6 +141,7 @@
             #form {
                 width: 280px;
                 height: 38px;
+                top: 50%;
             }
             #search {
                 width: 220px;
@@ -160,6 +161,7 @@
                 width: 70px;
             }
             #download {
+                font-size: 14px;
                 left: 50%;
                 transform: translate(-50%, 0);
             }
@@ -181,7 +183,7 @@
     </div>
 
     <div id="time"></div>
-    <img src="http://ou2r9nim8.bkt.clouddn.com/4.gif" alt="" id="gif">
+    <img src="http://ou2r9nim8.bkt.clouddn.com/8.gif" alt="" id="gif">
     <input type="button" value="下载源码" id="download">
     <script>
         $(document.body).on('keypress', keypress)
@@ -235,7 +237,7 @@
             var vl = $('#search').val();
             if (vl === "search") {
                 $(document.body).off('keypress');
-                $('#search').css('background-color','rgba(255,255,255,0.2)')
+                $('#search').css('background-color','rgba(255,255,255,0.1)')
                 $('#search').val('');
             }
         });
@@ -243,6 +245,7 @@
             var vl = $('#search').val();
             if (vl === "") {
                 $('#search').val('search');
+                $('#search').css('background-color','transparent');
             }
             $(document.body).on('keypress', keypress);
         });
