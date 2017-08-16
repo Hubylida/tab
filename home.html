@@ -65,7 +65,7 @@
             text-align: center;
             font-family: "Whitney Cond A", "Whitney Cond B", "Lato", "Lucida Grande", "Lucida Sans Unicode", Tahoma, Sans-Serif;
             border-bottom-left-radius: 4px;
-            border-bottom-right-radius: 4px;   
+            border-bottom-right-radius: 4px;
         }
 
         #nav a:hover,
@@ -154,16 +154,46 @@
                 font-size: 14px;
             }
             #nav {
-                text-align: center;
+                z-index: 999;
+                text-align: left;
+                padding: 6px;
+                width: 100%;
+                height: 125px;
+            }
+            #nav::before {
+                content: "";
+                display: inline-block;
+                width: 26px;
+                height: 4px;
+                padding: 4px 0;
+                border-top: 4px solid #bbb;
+                border-bottom: 4px solid #bbb;
+                background-clip: content-box;
+                background-color: #bbb;
             }
             #nav a {
-                font-size: 12px;
-                width: 70px;
+                font-size: 14px;
+                width: 100%;
+                height: 35px;
+                display: none;    
+                text-align: left;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 0;
+            }
+            #nav a:first-child {
+                margin-top: 5px;
+                border-top: 1px solid rgba(255, 255, 255, 0.2);
             }
             #download {
                 font-size: 14px;
                 left: 50%;
                 transform: translate(-50%, 0);
+            }
+            #gif {
+                position: absolute;
+                top: 38px;
+                left: 50%;
+                transform: translateX(-50%);
             }
         }
     </style>
@@ -237,7 +267,7 @@
             var vl = $('#search').val();
             if (vl === "search") {
                 $(document.body).off('keypress');
-                $('#search').css('background-color','rgba(255,255,255,0.1)')
+                $('#search').css('background-color', 'rgba(255,255,255,0.1)')
                 $('#search').val('');
             }
         });
@@ -245,7 +275,7 @@
             var vl = $('#search').val();
             if (vl === "") {
                 $('#search').val('search');
-                $('#search').css('background-color','transparent');
+                $('#search').css('background-color', 'transparent');
             }
             $(document.body).on('keypress', keypress);
         });
@@ -268,6 +298,24 @@
             //提交表单，实现下载
             $eleForm.submit();
         });
+        if(window.scrernX < 600){
+
+        }
+        var flag = true;
+        $('#nav').on('click',function(){
+            
+            if(window.screenX < 600){
+                if(flag){
+                    $('#nav a').css('display','block');
+                    $('#gif').hide();
+                    flag = !flag;
+                }else{
+                    $('#nav a').css('display','none');
+                    $('#gif').show();
+                    flag = !flag;
+                }               
+            }
+        })
     </script>
 </body>
 
