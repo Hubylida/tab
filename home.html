@@ -304,9 +304,9 @@
         var flag = true;
         $('#nav').on('click',function(){
             
-            if(window.screenX < 600){
+            if($(document.body).width() < 600){
                 if(flag){
-                    $('#nav a').css('display','block');
+                    $('#nav a').css('display','inline-block');
                     $('#gif').hide();
                     flag = !flag;
                 }else{
